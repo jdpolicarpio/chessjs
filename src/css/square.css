@@ -1,0 +1,30 @@
+.chessboard {
+    width: 640px;
+    height: 640px;
+    margin: 20px;
+    border: 25px solid rgb(30,33,36);
+}
+.isShaded {
+    float: left;
+    width: 78px;
+    height: 78px;
+    /* background-color: RGB(187,190,100); */
+    background-color: RGB(40,43,48);
+      font-size:50px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+    border: 1px solid black;
+}
+.isNotShaded {
+    float: left;
+    width: 78px;
+    height: 78px;
+    /* background-color: RGB(234,240,206); */
+    background-color: white;
+    font-size:50px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+    border: 1px solid black;
+}
