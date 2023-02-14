@@ -15,6 +15,7 @@ import whiteRook from "../images/wr.png";
 
 function Square(props) {
   let squareContent = mapStringToImage(props.piece);
+  //testing new branch
 
   return (
     <div class={props.class} key={props.i}>
