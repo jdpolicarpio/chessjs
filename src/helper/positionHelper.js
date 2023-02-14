@@ -1,4 +1,5 @@
-function determineSquareFromFenString(fenStringPosition) {
+// Returns a String array based off the FEN String
+function positionArrayFromFenString(fenStringPosition) {
   const fenArray = fenStringPosition.split("/");
   const resultArray = [];
 
@@ -15,4 +16,4 @@ function determineSquareFromFenString(fenStringPosition) {
   return resultArray;
 }
 
-export default determineSquareFromFenString;
+export default positionArrayFromFenString;

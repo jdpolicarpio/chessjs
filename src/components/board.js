@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import Square from "./square";
-import determineSquareFromFenString from "../helper/positionHelper";
+import positionArrayFromFenString from "../helper/positionHelper";
 
 function Board(props) {
   const BoardArray = [];
-  const rankArray = ["h", "g", "f", "e", "d", "c", "b", "a"];
-  const fileArray = ["1", "2", "3", "4", "5", "6", "7", "8"];
+  const rankArray = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  const fileArray = ["8", "7", "6", "5", "4", "3", "2", "1"];
 
   let classNameParameter = "isNotShaded";
-  // Used to load starting position
-  let positionArray = determineSquareFromFenString(props.startingPosition);
+  // Used to load starting position - 64 elements - 8 x 8
+  let positionArray = positionArrayFromFenString(props.startingPosition);
+  let i = 0;
+  let squareContent = " ";
+
   console.log(positionArray);
 
-  for (let rank = 7; rank > -1; rank--) {
-    for (let file = 7; file > -1; file--) {
+  for (let rank = 0; rank < 8; rank++) {
+    for (let file = 0; file < 8; file++) {
       // Determines if the square should be shaded or not
       if (isShaded(file, rank)) {
         classNameParameter = "isShaded";
@@ -21,14 +24,17 @@ function Board(props) {
         classNameParameter = "isNotShaded";
       }
 
-      let square = positionArray;
+      squareContent = positionArray[i];
 
       BoardArray.push(
         <Square
           class={classNameParameter}
           key={rankArray[file] + fileArray[rank]}
+          piece={squareContent}
         />
       );
+
+      i++;
     }
   }
 
