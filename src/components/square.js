@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Piece from "./piece";
 
 import blackBishop from "../images/bb.png";
 import blackKing from "../images/bk.png";
@@ -16,19 +17,17 @@ import whiteRook from "../images/wr.png";
 function Square(props) {
   let squareContent = mapStringToImage(props.piece);
 
-  return (
-    <div class={props.class} key={props.i}>
-      <img src={squareContent} width="100%" height="100%" />
-    </div>
-  );
-}
+  console.log(typeof squareContent);
 
-function isSquareEmpty(imageString) {
-  return imageString == " " ? true : false;
-}
-
-function isLowerCase(imageString) {
-  return imageString == imageString.toLowerCase() ? true : false;
+  if (typeof squareContent === "undefined") {
+    return <div class={props.class}></div>;
+  } else {
+    return (
+      <div class={props.class}>
+        <Piece content={squareContent} key={props.key} />
+      </div>
+    );
+  }
 }
 
 function mapStringToImage(pieceString) {

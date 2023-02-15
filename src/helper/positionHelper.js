@@ -16,4 +16,16 @@ function positionArrayFromFenString(fenStringPosition) {
   return resultArray;
 }
 
+function isSquareEmpty(imageString) {
+  return imageString == " " ? true : false;
+}
+
+function isLowerCase(imageString) {
+  return imageString == imageString.toLowerCase() ? true : false;
+}
+
+function isString(s) {
+  return typeof s == "string" ? true : false;
+}
+
 export default positionArrayFromFenString;
